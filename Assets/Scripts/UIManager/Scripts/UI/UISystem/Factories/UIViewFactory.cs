@@ -7,7 +7,7 @@ namespace UIManager
     public static class UIViewFactory
     {
 #if ADDRESSABLES
-        public static async System.Threading.Tasks.Task<T> LoadFromAddressablesAsync<T>(CustomCanvasBase parentCanvas, string assetPath) where T : UIViewBase
+        public static async System.Threading.Tasks.Task<T> LoadFromAddressablesAsync<T>(UIManagerCanvasBase parentCanvas, string assetPath) where T : UIViewBase
         {
             var assetLoader = new AssetLoader();
             
@@ -15,7 +15,7 @@ namespace UIManager
 
             instance = instance.GetComponent<T>();
             
-            parentCanvas = Object.FindObjectOfType<CustomCanvasBase>();
+            parentCanvas = Object.FindObjectOfType<UIManagerCanvasBase>();
 
             var viewInstance = Object.Instantiate(instance, parentCanvas.transform);
             
