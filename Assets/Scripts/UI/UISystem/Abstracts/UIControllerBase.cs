@@ -15,15 +15,14 @@ namespace UI
         
         protected UIControllerBase()
         {
-#if EXTENJECT 
 #if ADDRESSABLES
             LoadFromAddressables();
-#endif
 #else
             LoadFromResources();
 #endif
         }
 
+#if ADDRESSABLES
         private async void LoadFromAddressables()
         {
             View = await UIViewFactory.LoadFromAddressablesAsync<TView>(_mainCanvas, GetViewAssetAddress());
@@ -33,7 +32,7 @@ namespace UI
 
             Initialize();
         }
-
+#endif
         private async void LoadFromResources()
         {
             View = await UIViewFactory.LoadFromResources<TView>(_mainCanvas, GetViewAssetAddress());

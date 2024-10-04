@@ -1,7 +1,8 @@
-using System;
+using JetBrains.Annotations;
 
 namespace UI
 {
+    [UsedImplicitly]
     public class UIManager : IUIManager
     {
 #if EXTENJECT        
@@ -10,11 +11,6 @@ namespace UI
         {
             _container = container;
         }
-#else
-        public UIManager()
-        {
-            
-        }
 #endif
         public T LoadController<T>()
         {
@@ -22,7 +18,7 @@ namespace UI
             var controller = _container.Instantiate<T>();
             return controller;
 #else  
-            var controller = Activator.CreateInstance<T>();
+            var controller = System.Activator.CreateInstance<T>();
             return controller;
 #endif
         }

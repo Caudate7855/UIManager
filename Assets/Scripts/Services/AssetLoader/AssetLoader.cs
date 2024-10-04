@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
+#if ADDRESSABLES
 public class AssetLoader
 {
     public async Task<T> Load<T>(string path)
@@ -13,3 +14,4 @@ public class AssetLoader
         return result;
     }
 }
+#endif
