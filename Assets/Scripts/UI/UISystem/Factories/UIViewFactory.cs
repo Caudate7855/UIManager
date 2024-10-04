@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -8,7 +7,6 @@ namespace UI
     [UsedImplicitly]
     public static class UIViewFactory
     {
-#if EXTENJECT
 #if ADDRESSABLES
         public static async Task<T> LoadFromAddressablesAsync<T>(CustomCanvasBase parentCanvas, string assetPath) where T : UIViewBase
         {
@@ -25,15 +23,24 @@ namespace UI
             return viewInstance;
         }
 #endif
-#endif
-        public static async Task<T> LoadFromResources<T>(CustomCanvasBase parentCanvas, string assetPath) where T : UIViewBase
+        public static T LoadFromResources<T>(CustomCanvasBase parentCanvas, string assetPath)
+            where T : UIViewBase
         {
-            var viewInstance = await Resources.LoadAsync<T>(assetPath);
-            parentCanvas = Object.FindObjectOfType<CustomCanvasBase>();
-            
-            viewInstance = Object.Instantiate(viewInstance, parentCanvas.transform);
+            var resourceRequest = Resources.LoadAsync<T>(assetPath);
 
-            return viewInstance as T;
+            T viewInstance;
+
+            if (parentCanvas != null)
+            {
+                viewInstance = Object.Instantiate(resourceRequest.asset, parentCanvas.transform) as T;
+            }
+            else
+            {
+                parentCanvas = Object.FindObjectOfType<CustomCanvasBase>();
+                viewInstance = Object.Instantiate(resourceRequest.asset, parentCanvas.transform) as T;
+            }
+
+            return viewInstance;
         }
     }
 }

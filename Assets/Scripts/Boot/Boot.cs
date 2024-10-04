@@ -1,11 +1,10 @@
 using UI;
 using UI.UISystem;
 using UnityEngine;
-using Zenject;
 
 public class Boot : MonoBehaviour
 {
-    [Inject] private IUIManager _uiManager;
+    private IUIManager _uiManager = new UIManager();
     private TestWindowController _testWindowController;
     
     private void Start()

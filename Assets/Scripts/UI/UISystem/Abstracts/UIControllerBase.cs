@@ -33,9 +33,9 @@ namespace UI
             Initialize();
         }
 #endif
-        private async void LoadFromResources()
+        private void LoadFromResources()
         {
-            View = await UIViewFactory.LoadFromResources<TView>(_mainCanvas, GetViewAssetAddress());
+            View = UIViewFactory.LoadFromResources<TView>(_mainCanvas, GetViewAssetAddress());
             
             View.gameObject.SetActive(false);
             _isViewLoaded = true;
