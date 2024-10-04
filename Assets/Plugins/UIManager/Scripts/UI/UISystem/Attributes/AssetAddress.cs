@@ -1,6 +1,6 @@
 using System;
 
-namespace UI
+namespace UIManager
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class AssetAddress : Attribute

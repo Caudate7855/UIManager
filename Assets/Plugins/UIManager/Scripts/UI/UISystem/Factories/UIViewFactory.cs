@@ -1,14 +1,13 @@
-using System.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace UI
+namespace UIManager
 {
     [UsedImplicitly]
     public static class UIViewFactory
     {
 #if ADDRESSABLES
-        public static async Task<T> LoadFromAddressablesAsync<T>(CustomCanvasBase parentCanvas, string assetPath) where T : UIViewBase
+        public static async System.Threading.Tasks.Task<T> LoadFromAddressablesAsync<T>(CustomCanvasBase parentCanvas, string assetPath) where T : UIViewBase
         {
             var assetLoader = new AssetLoader();
             
@@ -23,7 +22,7 @@ namespace UI
             return viewInstance;
         }
 #endif
-        public static T LoadFromResources<T>(CustomCanvasBase parentCanvas, string assetPath)
+        public static T LoadFromResources<T>(UIManagerCanvasBase parentCanvas, string assetPath)
             where T : UIViewBase
         {
             var resourceRequest = Resources.LoadAsync<T>(assetPath);
@@ -36,7 +35,7 @@ namespace UI
             }
             else
             {
-                parentCanvas = Object.FindObjectOfType<CustomCanvasBase>();
+                parentCanvas = Object.FindObjectOfType<UIManagerCanvasBase>();
                 viewInstance = Object.Instantiate(resourceRequest.asset, parentCanvas.transform) as T;
             }
 

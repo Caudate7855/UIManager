@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 
-namespace UI
+namespace UIManager
 {
     [UsedImplicitly]
     public class UIManager : IUIManager

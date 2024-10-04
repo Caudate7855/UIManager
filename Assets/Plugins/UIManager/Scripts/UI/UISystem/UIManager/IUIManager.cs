@@ -1,4 +1,4 @@
-namespace UI
+namespace UIManager
 {
     public interface IUIManager
     {

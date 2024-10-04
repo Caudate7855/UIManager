@@ -1,10 +1,8 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using UnityEngine;
 
-
-namespace UI
+namespace UIManager
 {
     public abstract class UIControllerBase<TView> where TView : UIViewBase
     {

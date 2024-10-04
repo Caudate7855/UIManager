@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 
-namespace UI.UISystem
+namespace UIManager
 {
     [AssetAddress("TestWindow"), UsedImplicitly]
     public class TestWindowController : UIControllerBase<TestWindowView>
