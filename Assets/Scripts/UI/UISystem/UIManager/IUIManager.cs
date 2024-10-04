@@ -2,6 +2,6 @@ namespace UI
 {
     public interface IUIManager
     {
-        public T Load<T>();
+        public T LoadController<T>();
     }
 }

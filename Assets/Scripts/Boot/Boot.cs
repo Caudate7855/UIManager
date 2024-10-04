@@ -10,7 +10,7 @@ public class Boot : MonoBehaviour
     
     private void Start()
     {
-        _testWindowController = _uiManager.Load<TestWindowController>();
+        _testWindowController = _uiManager.LoadController<TestWindowController>();
         _testWindowController.Open();
     }
 }

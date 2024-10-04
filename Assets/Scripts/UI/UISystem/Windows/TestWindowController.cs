@@ -5,8 +5,12 @@ namespace UI.UISystem
     [AssetAddress("TestWindow"), UsedImplicitly]
     public class TestWindowController : UIControllerBase<TestWindowView>
     {
-        public TestWindowController(IAssetLoader assetLoader) : base(assetLoader) { }
-
+#if EXTENJECT
+#if ADDRESSABLES
+        public TestWindowController() : base() { }
+        
+#endif
+#endif
         protected override void Initialize()
         {
             

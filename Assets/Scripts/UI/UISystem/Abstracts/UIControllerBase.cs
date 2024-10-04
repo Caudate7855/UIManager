@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
-using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
+using UnityEngine;
+
 
 namespace UI
 {
@@ -10,13 +12,36 @@ namespace UI
 
         private bool _isViewLoaded;
         private MainCanvas _mainCanvas;
-
-        private readonly IAssetLoader _assetLoader;
-
-        protected UIControllerBase(IAssetLoader assetLoader)
+        
+        protected UIControllerBase()
         {
-            _assetLoader = assetLoader;
-            LoadView();
+#if EXTENJECT 
+#if ADDRESSABLES
+            LoadFromAddressables();
+#endif
+#else
+            LoadFromResources();
+#endif
+        }
+
+        private async void LoadFromAddressables()
+        {
+            View = await UIViewFactory.LoadFromAddressablesAsync<TView>(_mainCanvas, GetViewAssetAddress());
+            
+            View.gameObject.SetActive(false);
+            _isViewLoaded = true;
+
+            Initialize();
+        }
+
+        private async void LoadFromResources()
+        {
+            View = await UIViewFactory.LoadFromResources<TView>(_mainCanvas, GetViewAssetAddress());
+            
+            View.gameObject.SetActive(false);
+            _isViewLoaded = true;
+
+            Initialize();
         }
 
         public async void Open()
@@ -47,22 +72,11 @@ namespace UI
 
         protected virtual void OnClose() { }
 
-
-        private async UniTask LoadView()
-        {
-            View = await UIViewFactory.LoadAsync<TView>(_assetLoader, _mainCanvas, GetViewAssetAddress());
-
-            View.gameObject.SetActive(false);
-            _isViewLoaded = true;
-
-            Initialize();
-        }
-
-        private async UniTask WaitForViewToLoad()
+        private async Task WaitForViewToLoad()
         {
             while (!_isViewLoaded)
             {
-                await UniTask.Yield();
+                await Task.Yield();
             }
         }
 
