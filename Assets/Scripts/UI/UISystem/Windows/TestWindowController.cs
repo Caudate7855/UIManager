@@ -1,6 +1,8 @@
+using JetBrains.Annotations;
+
 namespace UI.UISystem
 {
-    [AssetAddress("TestWindow")]
+    [AssetAddress("TestWindow"), UsedImplicitly]
     public class TestWindowController : UIControllerBase<TestWindowView>
     {
         public TestWindowController(IAssetLoader assetLoader) : base(assetLoader) { }

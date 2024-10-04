@@ -1,4 +1,5 @@
 using UI;
+using UI.UISystem;
 using UnityEngine;
 using Zenject;
 
@@ -27,6 +28,8 @@ public class UIInstaller : MonoInstaller<UIInstaller>
 
     private void BindControllers()
     {
-       
+        Container
+            .Bind<TestWindowController>()
+            .AsSingle();
     }
 }
