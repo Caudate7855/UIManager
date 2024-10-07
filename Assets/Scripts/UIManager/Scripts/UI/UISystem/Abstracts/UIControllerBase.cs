@@ -9,7 +9,7 @@ namespace UIManager
         protected TView View;
 
         private bool _isViewLoaded;
-        private MainCanvas _mainCanvas;
+        private UIManagerCanvasBase _mainCanvas;
         
         protected UIControllerBase()
         {
