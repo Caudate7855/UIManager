@@ -9,12 +9,15 @@ namespace UIManager.Samples.Extenject_Addressables.Scripts
         public override void InstallBindings()
         {
             InstallUIManager();
+            InstallUIDependency();
+            InstallControllers();
+        }
 
+        private void InstallUIDependency()
+        {
             Container
                 .Bind<ExampleDependency>()
                 .AsSingle();
-
-            InstallControllers();
         }
 
         private void InstallUIManager()
