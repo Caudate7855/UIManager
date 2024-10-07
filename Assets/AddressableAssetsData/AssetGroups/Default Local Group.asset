@@ -22,8 +22,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2f927e90b7563a54f9875d144cac286b
-    m_Address: MainCanvas
+  - m_GUID: e595ecd454b385e4f8ee83ec16f02abb
+    m_Address: ParentCanvas
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
