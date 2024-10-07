@@ -1,4 +1,4 @@
-namespace UIManager.Samples.Extenject_Addressables.Scripts
+namespace UIManager.Samples.Common
 {
     public class ParentCanvas : UIManagerCanvasBase
     {

@@ -1,3 +1,5 @@
+#if EXTENJECT
+
 namespace UIManager.Samples.Extenject_Addressables.Scripts
 {
     public class ExampleDependency
@@ -5,3 +7,5 @@ namespace UIManager.Samples.Extenject_Addressables.Scripts
         public int Number { get; set; }
     }
 }
+
+#endif

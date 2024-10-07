@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 2ba26303b350a0e469b84a83b175263d
   m_SerializeEntries:
   - m_GUID: 60441982fb6d2474c86e77b0983153bf
-    m_Address: TestWindow
+    m_Address: ExampleWindow
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

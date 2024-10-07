@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1849445294418520486}
-  _backgroundSprite: {fileID: 1691737431880502849}
+  _backgroundImage: {fileID: 1691737431880502849}
 --- !u!1 &5518031001465885090
 GameObject:
   m_ObjectHideFlags: 0

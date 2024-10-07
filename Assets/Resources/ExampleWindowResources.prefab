@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1691737431880502849}
   - component: {fileID: 8336040793547068416}
   m_Layer: 0
-  m_Name: TestWindow
+  m_Name: ExampleWindowResources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 7829616814121145252}
+  _backgroundImage: {fileID: 1691737431880502849}
 --- !u!1 &8817059827926344503
 GameObject:
   m_ObjectHideFlags: 0
